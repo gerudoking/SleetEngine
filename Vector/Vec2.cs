@@ -17,7 +17,7 @@ namespace SleetEngine{
         ///<sumary>
         ///Class constructor. Initializes x and y as 0.
         ///</sumary>
-        Vec2(){
+        public Vec2(){
             x = 0.0f;
             y = 0.0f;
         }
@@ -27,7 +27,7 @@ namespace SleetEngine{
         ///</sumary>
         /// <param name="x"> The value to initialize x with</param>
         /// <param name="y"> The value to initialize y with</param>
-        Vec2(float x, float y){
+        public Vec2(float x, float y){
             this.x = x;
             this.y = y;
         }
@@ -75,6 +75,14 @@ namespace SleetEngine{
 
         public static bool operator!=(Vec2 a, Vec2 b){
             return !(a == b);
+        }
+
+        public float Angle(){
+            return (float)Math.Atan2(y, x);
+        }
+
+        public Vec2 Rotate(float ang){
+            return new Vec2((float)(x * Math.Cos(ang) - y * Math.Sin(ang)), (float)(y * Math.Cos(ang) + x * Math.Sin(ang)));
         }
     }
 }
